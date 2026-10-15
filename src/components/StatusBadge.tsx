@@ -5,6 +5,7 @@ type StatusBadgeProps = {
 }
 
 export function StatusBadge({ status }: StatusBadgeProps) {
-  const label = status === "confirmed" ? "확정" : "미정"
+  const labels = { confirmed: "확정", planned: "예정", tbd: "미정" } as const
+  const label = labels[status]
   return <span className={`status-badge status-badge--${status}`}>{label}</span>
 }

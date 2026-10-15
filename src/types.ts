@@ -1,4 +1,4 @@
-export type Status = "confirmed" | "tbd"
+export type Status = "confirmed" | "planned" | "tbd"
 
 export type WorkshopMeta = {
   readonly title: string
@@ -38,6 +38,7 @@ export type TimelineItem = {
   readonly title: string
   readonly description?: string
   readonly status: Status
+  readonly highlight?: boolean
 }
 
 export type ShoppingItem = {
