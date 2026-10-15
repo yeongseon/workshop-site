@@ -1,0 +1,30 @@
+.hero { position: relative; display: grid; align-items: center; gap: var(--space-10); max-width: var(--content-width); min-height: min(48rem, 92dvh); margin: 0 auto; padding: var(--space-16) var(--page-gutter) var(--space-12); overflow: hidden; }
+.hero::before { content: ""; position: absolute; width: 26rem; height: 26rem; right: -12rem; top: -8rem; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--color-tangerine) 20%, transparent), transparent 68%); filter: blur(var(--space-4)); pointer-events: none; }
+.hero__copy { position: relative; z-index: 1; }
+.hero__location { margin: 0 0 var(--space-6); color: var(--color-tangerine-strong); font-size: var(--text-label); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.hero h1 { max-width: 12ch; margin: 0; font-size: var(--text-display); font-weight: 760; line-height: 0.98; letter-spacing: -0.055em; text-wrap: balance; }
+.hero__subtitle { max-width: 28rem; margin: var(--space-5) 0 0; color: var(--color-text-muted); font-size: var(--text-h3); }
+.hero__tagline { max-width: 34rem; margin: var(--space-4) 0 0; color: var(--color-text-quiet); font-size: var(--text-small); }
+.boarding-pass { position: relative; display: grid; overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-accent) 45%, var(--color-border)); border-radius: var(--space-5); background: linear-gradient(145deg, var(--color-surface-raised), var(--color-surface)); box-shadow: var(--shadow-ticket); transform: rotate(1deg); }
+.boarding-pass::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 22%, color-mix(in srgb, var(--color-tangerine) 16%, transparent), transparent 32%); pointer-events: none; }
+.boarding-pass__main { position: relative; padding: var(--space-5); }
+.boarding-pass__topline { display: flex; justify-content: space-between; gap: var(--space-3); color: var(--color-accent); font-size: var(--text-label); font-weight: 700; letter-spacing: 0.12em; }
+.boarding-pass__route { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-3); margin-block: var(--space-8); }
+.boarding-pass__route strong { font-size: clamp(1.75rem, 9vw, 3rem); line-height: 1; letter-spacing: -0.05em; }
+.boarding-pass__route > span { display: flex; align-items: center; gap: var(--space-2); }
+.boarding-pass__route > span::before { content: ""; flex: 1; border-top: 1px dashed var(--color-accent); }
+.boarding-pass__route i { width: var(--space-2); height: var(--space-2); border: 2px solid var(--color-accent); border-radius: 50%; }
+.boarding-pass__facts { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-4); margin: 0; padding-top: var(--space-4); border-top: 1px solid var(--color-border); }
+.boarding-pass__facts dt { color: var(--color-text-quiet); font-size: var(--text-label); font-weight: 700; }
+.boarding-pass__facts dd { margin: var(--space-1) 0 0; font-size: var(--text-small); font-weight: 650; }
+.boarding-pass__stub { position: relative; display: grid; place-items: center; min-height: 10rem; padding: var(--space-5); border-top: 1px dashed var(--color-border); color: var(--color-tangerine-strong); }
+.boarding-pass__stub::before, .boarding-pass__stub::after { content: ""; position: absolute; width: var(--space-6); height: var(--space-6); top: calc(var(--space-3) * -1); border-radius: 50%; background: var(--color-canvas); }
+.boarding-pass__stub::before { left: calc(var(--space-3) * -1); }
+.boarding-pass__stub::after { right: calc(var(--space-3) * -1); }
+.boarding-pass__stub svg { width: 4.5rem; fill: color-mix(in srgb, var(--color-tangerine) 20%, transparent); stroke: var(--color-tangerine); stroke-width: 3; }
+.boarding-pass__stub strong { font-size: var(--text-h3); letter-spacing: 0.16em; }
+.boarding-pass__stub span { color: var(--color-text-quiet); font-size: var(--text-label); }
+@media (min-width: 48rem) {
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.82fr); gap: var(--space-12); min-height: 44rem; padding-top: 6rem; }
+  .boarding-pass { transform: rotate(2deg); }
+}

@@ -4,10 +4,10 @@
 - Embedded refs: shortlisted Linear, Airbnb, Notion → picked taste-skill + Linear because a compact itinerary benefits from precise hierarchy and status-led navigation; replaced the purple brand accent with travel-map mint.
 - Lazyweb: skipped — no browsing is needed for this small utility and no external screen research tool was requested.
 - Imagen drafts: skipped — no image-generation tool is available; the product is information-first rather than photography-led.
-- Direction: a night route card carried in one hand. Charcoal layers feel calm and durable; mint marks confirmed waypoints, while amber isolates unresolved decisions.
+- Direction: a night route card carried in one hand, now stamped like a small friends-only boarding pass. Charcoal layers stay calm and durable; mint marks the route, tangerine carries Jeju warmth and playful photo moments, while amber remains reserved for unresolved decisions.
 
 ## 1. Atmosphere & Identity
-A compact, dependable pocket itinerary: dark like an evening map, bright at the exact points where a traveler needs certainty. The signature is the **route line**—a mint vertical timeline and directional strokes that connect dates, lodging, and next steps without decorative imagery.
+A compact, dependable pocket itinerary: dark like an evening map, bright at the exact points where a traveler needs certainty. The signature is the **route line** paired with a **boarding-pass hero**—a perforated, dimensional ticket whose mint route and tangerine Jeju seal make four friends' weekend feel personal without obscuring practical details.
 
 ## 2. Color
 
@@ -24,12 +24,16 @@ A compact, dependable pocket itinerary: dark like an evening map, bright at the 
 | Accent | `--color-accent` | `#9ee7b5` | Links, route line, focus |
 | Accent strong | `--color-accent-strong` | `#c7f5d3` | Hovered accent text |
 | Accent ink | `--color-accent-ink` | `#102117` | Text on accent fill |
+| Tangerine | `--color-tangerine` | `#ff9d4d` | Jeju seal, playful mission action |
+| Tangerine strong | `--color-tangerine-strong` | `#ffc078` | Highlight and hover state |
+| Tangerine ink | `--color-tangerine-ink` | `#2b1608` | Text on tangerine fill |
+| Tangerine soft | `--color-tangerine-soft` | `#3b2416` | Warm ticket glow and pose panel |
 | Confirmed | `--color-confirmed` | `#75d79a` | Confirmed state |
 | Confirmed soft | `--color-confirmed-soft` | `#193526` | Confirmed badge background |
 | TBD | `--color-tbd` | `#f2bd62` | Unresolved state |
 | TBD soft | `--color-tbd-soft` | `#3c2c16` | Unresolved badge background |
 
-Accent is functional, not decorative. The palette is dark-only to match the single-theme information utility brief.
+Mint remains the functional route accent. Tangerine is a tightly scoped travel accent for the boarding-pass seal and hackathon-tee photo interaction; amber continues to mean only “미정.” The palette is dark-only.
 
 ## 3. Typography
 
@@ -69,7 +73,7 @@ Base unit: 4px. Tokens: `--space-1` 4px, `--space-2` 8px, `--space-3` 12px, `--s
 - **Depth:** tonal shift plus a one-token border; no drop shadows.
 
 ### Status badge
-- **Variants:** confirmed mint, TBD amber.
+- **Variants:** confirmed mint, planned neutral (raised surface + muted text, “예정”), TBD amber. Estimated times and travel plans must never use the confirmed variant.
 - **Spacing:** `--space-1` × `--space-2`; full pill.
 - **Accessibility:** status is always written as text, never color-only.
 
@@ -82,6 +86,26 @@ Base unit: 4px. Tokens: `--space-1` 4px, `--space-2` 8px, `--space-3` 12px, `--s
 - **Structure:** time column + route marker + title/description/status.
 - **Variants:** confirmed solid marker, TBD amber ring.
 - **Accessibility:** chronological ordered list and visible status text.
+- **Highlight:** the shared Saturday dinner uses a raised-surface content panel, accent border and `--space-4` padding; no invented time certainty.
+- **Time column:** `--space-16` wide, wrapping at word boundaries for estimated ranges.
+
+### Participant detail row
+- Name/index occupy a compact first line; descriptive travel notes span the remaining width below the name on mobile and desktop.
+- Body copy uses word-preserving Korean wrapping and secondary text color.
+
+### Gallery empty state
+- Semantic region below the mission with a heading and explicit “photos will be added” text; no sample photos presented as real trip photos.
+
+### Boarding-pass hero
+- **Structure:** hero copy and essentials sit beside a ticket stub containing route, travel dates, party size, and a stylized Jeju/tangerine seal.
+- **Material:** canvas-to-surface tonal layers, a perforated divider, mint route marks, tangerine radial glow, and tinted depth shadow.
+- **Responsive:** one composition below 768px; copy and ticket form an asymmetric two-column layout at tablet/desktop.
+- **Accessibility:** ticket repeats only known trip facts, decorative SVG is hidden, and all Korean phrases preserve natural line breaks.
+
+### Pose shuffler
+- **Structure:** tangerine action button followed by a polite live region that presents one photo-pose suggestion for the hackathon tee mission.
+- **States:** initial invitation, pressed feedback, then deterministic cycling through suggestions; no random or invented itinerary information.
+- **Accessibility:** native button, 44px minimum target, visible focus, `aria-live="polite"`; the interaction remains fully usable with reduced motion.
 
 ### Checklist row
 - **Structure:** native checkbox + item label + optional owner.
@@ -89,12 +113,13 @@ Base unit: 4px. Tokens: `--space-1` 4px, `--space-2` 8px, `--space-3` 12px, `--s
 - **Accessibility:** native input remains operable and has a visible label.
 
 ## 6. Motion & Interaction
-- Micro feedback: 140ms `ease-out`, only `transform`, `opacity`, and colors.
+- Micro feedback: `--motion-fast` 140ms and `--motion-swap` 200ms, both `ease-out`; only `transform`, `opacity`, `filter`, and colors.
 - Buttons translate by 1px on press; check state changes are immediate.
-- No automatic animation. `prefers-reduced-motion` removes smooth scrolling and transitions.
+- Pose shuffler adapts beui.dev `action-swap`: the suggestion uses a short opacity/blur swap after a deliberate button press; no motion library is added.
+- No automatic animation. `prefers-reduced-motion` removes smooth scrolling, blur, and transitions.
 
 ## 7. Depth & Surface
-Strategy: **mixed tonal shift + borders**. Canvas → surface → raised creates hierarchy; a single border defines touchable or grouped regions. No box shadows. Large panels use 20px radius, rows 12px, buttons and badges full-pill.
+Strategy: **mixed tonal shift + borders**, with one documented exception: the boarding-pass focal object may use `--shadow-ticket`, a tinted mint/tangerine depth shadow that makes the ticket read as a physical object. Canvas → surface → raised creates hierarchy; a single border defines other touchable or grouped regions. Large panels use 20px radius, rows 12px, buttons and badges full-pill.
 
 ## 8. Accessibility Constraints & Accepted Debt
 
