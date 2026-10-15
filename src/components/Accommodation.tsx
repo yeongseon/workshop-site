@@ -12,7 +12,7 @@ export function Accommodation({ accommodation }: AccommodationProps) {
         <h2 id="accommodation-title">우리 숙소</h2>
       </div>
       <article className="lodging-card">
-        <div className="lodging-card__topline"><span>1박</span><span>STAY</span></div>
+        <div className="lodging-card__topline"><span className="status-badge status-badge--confirmed">예약 완료</span><span>1박 · STAY</span></div>
         <h3>{accommodation.name}</h3>
         <p className="lodging-card__address">{accommodation.address}</p>
         <dl className="lodging-card__times">
@@ -20,7 +20,7 @@ export function Accommodation({ accommodation }: AccommodationProps) {
           <div><dt>체크아웃</dt><dd>{accommodation.checkOut}</dd></div>
         </dl>
         <a className="primary-button" href={accommodation.link} target="_blank" rel="noopener noreferrer">
-          숙소 링크 열기 <span aria-hidden="true">↗</span>
+          숙소 보기 <span aria-hidden="true">↗</span>
         </a>
         <ul className="note-list">
           {accommodation.notes.map((note) => <li key={note}>{note}</li>)}
