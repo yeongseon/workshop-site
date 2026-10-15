@@ -12,7 +12,7 @@ const links = [
 
 export function SectionNav() {
   return (
-    <nav className="section-nav" aria-label="워크샵 정보 바로가기">
+    <nav className="section-nav" aria-label="모임 정보 바로가기">
       <div className="section-nav__track">
         {links.map(([id, label]) => (
           <a className="nav-chip" href={`#${id}`} key={id}>
