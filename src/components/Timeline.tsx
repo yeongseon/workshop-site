@@ -22,7 +22,7 @@ export function Timeline({ id, day, date, sectionNumber, items }: TimelineProps)
           <li className={`timeline__item timeline__item--${item.status}`} key={`${item.time}-${item.title}`}>
             <time>{item.time}</time>
             <span className="timeline__marker" aria-hidden="true" />
-            <div className="timeline__content">
+            <div className={`timeline__content${item.highlight ? " timeline__content--highlight" : ""}`}>
               <div><h3>{item.title}</h3><StatusBadge status={item.status} /></div>
               {item.description === undefined ? null : <p>{item.description}</p>}
             </div>

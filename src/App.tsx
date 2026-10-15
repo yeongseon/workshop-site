@@ -20,8 +20,8 @@ export function App() {
         <Participants participants={workshop.participants} />
         <Accommodation accommodation={workshop.accommodation} />
         <Transportation items={workshop.transportation} />
-        <Timeline id="day-1" day="토요일" date="DAY 1 · 11월 7일" sectionNumber="05" items={workshop.day1} />
-        <Timeline id="day-2" day="일요일" date="DAY 2 · 11월 8일" sectionNumber="06" items={workshop.day2} />
+        <Timeline id="day-1" day="토요일" date="DAY 1 · 11월 14일" sectionNumber="05" items={workshop.day1} />
+        <Timeline id="day-2" day="일요일" date="DAY 2 · 11월 15일" sectionNumber="06" items={workshop.day2} />
         <ShoppingList items={workshop.shoppingList} />
         <Mission missions={workshop.missions} />
         <TbdList items={workshop.tbdList} />
