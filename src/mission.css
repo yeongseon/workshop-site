@@ -1,0 +1,24 @@
+.mission-grid { display: grid; gap: var(--space-3); }
+.mission-grid li { padding: var(--space-5); border-radius: var(--space-5); background: var(--color-surface-raised); }
+.mission-grid li > span { color: var(--color-tangerine); font-size: var(--text-label); font-weight: 700; }
+.mission-grid h3 { margin: var(--space-8) 0 var(--space-2); font-size: var(--text-h3); }
+.mission-grid p { margin: 0; color: var(--color-text-muted); font-size: var(--text-small); }
+.pose-shuffler { display: grid; gap: var(--space-4); margin-top: var(--space-4); padding: var(--space-5); border: 1px solid color-mix(in srgb, var(--color-tangerine) 50%, var(--color-border)); border-radius: var(--space-5); background: linear-gradient(145deg, var(--color-tangerine-soft), var(--color-surface)); }
+.pose-shuffler span { color: var(--color-tangerine-strong); font-size: var(--text-label); font-weight: 700; }
+.pose-shuffler h3 { margin: var(--space-1) 0 0; font-size: var(--text-h3); }
+.pose-shuffler button { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; gap: var(--space-2); padding-inline: var(--space-4); border: 0; border-radius: 999px; background: var(--color-tangerine); color: var(--color-tangerine-ink); font-size: var(--text-small); font-weight: 700; cursor: pointer; transition: transform var(--motion-fast) ease-out, background-color var(--motion-fast) ease-out; }
+.pose-shuffler button:hover { background: var(--color-tangerine-strong); }
+.pose-shuffler button:active { transform: translateY(1px) scale(0.98); }
+.pose-shuffler button svg { width: var(--space-5); fill: currentColor; }
+.pose-shuffler > p { min-height: 3.2rem; margin: 0; color: var(--color-text); font-size: var(--text-small); animation: pose-swap var(--motion-swap) ease-out; }
+.gallery-empty { margin-top: var(--space-6); padding: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--space-5); }
+.gallery-empty h3 { margin: 0 0 var(--space-2); font-size: var(--text-h3); }
+.gallery-empty p { margin: 0; color: var(--color-text-muted); font-size: var(--text-small); }
+@keyframes pose-swap { from { opacity: 0; transform: translateY(var(--space-1)); filter: blur(3px); } }
+@media (min-width: 48rem) {
+  .pose-shuffler { grid-template-columns: 1fr auto; align-items: center; }
+  .pose-shuffler > p { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pose-shuffler > p { animation: none; }
+}
